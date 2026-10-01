@@ -2,7 +2,50 @@
 
 Havenly is a full-stack real estate web application that helps users discover properties, search and filter listings, view detailed property information, save favorite properties, book property visits, and interact with an AI-powered property assistant.
 
-The application combines a modern React frontend, Node.js/Express backend, MongoDB Atlas database, Prisma ORM, and Google Gemini API to provide an intelligent property discovery experience.
+The application combines a React frontend, Node.js/Express backend, MongoDB Atlas, Prisma ORM, and Google Gemini API to provide an intelligent property discovery experience.
+
+---
+
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/homepage.png" alt="Havenly Home Page">
+      <p align="center"><strong>Home Page</strong></p>
+    </td>
+    <td width="50%">
+      <img src="./screenshots/signin.png" alt="Havenly Sign In">
+      <p align="center"><strong>Sign In</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/properties.png" alt="Havenly Properties">
+      <p align="center"><strong>Properties</strong></p>
+    </td>
+    <td width="50%">
+      <img src="./screenshots/propertiesdetails.png" alt="Havenly Property Details">
+      <p align="center"><strong>Property Details</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/chatbot.png" alt="Havenly AI Chatbot">
+      <p align="center"><strong>AI Chatbot</strong></p>
+    </td>
+    <td width="50%">
+      <img src="./screenshots/favorites.png" alt="Havenly Favorites">
+      <p align="center"><strong>Favorites</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="./screenshots/bookings.png" alt="Havenly Bookings" width="70%">
+      <p><strong>Bookings</strong></p>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -119,7 +162,7 @@ Each property has a dedicated details page containing:
 
 Property locations are displayed using OpenStreetMap.
 
-The application uses stored latitude and longitude information for the property locations and displays the corresponding area on the map.
+The application uses stored latitude and longitude information for property locations and displays the corresponding area on the map.
 
 ### 🔐 User Authentication
 
@@ -154,53 +197,9 @@ The frontend is designed to work across:
 
 ---
 
-# 📸 Screenshots
+## 🛠️ Technology Stack
 
-## 🏠 Home Page
-
-![Havenly Home Page](./screenshots/homepage.png)
-
----
-
-## 🔐 Sign In
-
-![Havenly Sign In](./screenshots/signin.png)
-
----
-
-## 🏘️ Properties
-
-![Havenly Properties](./screenshots/properties.png)
-
----
-
-## 🏡 Property Details
-
-![Havenly Property Details](./screenshots/propertiesdetails.png)
-
----
-
-## 🤖 AI Chatbot
-
-![Havenly AI Chatbot](./screenshots/chatbot.png)
-
----
-
-## ❤️ Favorites
-
-![Havenly Favorites](./screenshots/favorities.png)
-
----
-
-## 📅 Bookings
-
-![Havenly Bookings](./screenshots/bookings.png)
-
----
-
-# 🛠️ Technology Stack
-
-## Frontend
+### Frontend
 
 * React.js
 * JavaScript
@@ -208,30 +207,30 @@ The frontend is designed to work across:
 * Vite
 * CSS
 * Lucide React Icons
-* Axios / Fetch-based API communication
+* Fetch-based API communication
 
-## Backend
+### Backend
 
 * Node.js
 * Express.js
 * REST APIs
 
-## Database
+### Database
 
 * MongoDB Atlas
 * Prisma ORM
 
-## Artificial Intelligence
+### Artificial Intelligence
 
 * Google Gemini API
 * Custom property filtering engine
 * Natural-language property search
 
-## Maps
+### Maps
 
 * OpenStreetMap
 
-## Development Tools
+### Development Tools
 
 * Visual Studio Code
 * Git
@@ -240,11 +239,11 @@ The frontend is designed to work across:
 
 ---
 
-# 🏗️ Application Architecture
+## 🏗️ Application Architecture
 
 ```text
                          ┌──────────────────────┐
-                         │       User           │
+                         │        User          │
                          └──────────┬───────────┘
                                     │
                                     ▼
@@ -253,11 +252,12 @@ The frontend is designed to work across:
                          │      + Vite          │
                          └──────────┬───────────┘
                                     │
-                       REST API     │
+                              REST API
+                                    │
                                     ▼
                          ┌──────────────────────┐
                          │  Express.js Backend  │
-                         │     Node.js          │
+                         │      Node.js         │
                          └───────┬───────┬──────┘
                                  │       │
                        ┌─────────┘       └─────────────┐
@@ -274,9 +274,9 @@ The frontend is designed to work across:
 
 ---
 
-# 🔄 Application Workflow
+## 🔄 Application Workflow
 
-## Property Discovery
+### Property Discovery
 
 ```text
 User
@@ -298,7 +298,7 @@ Property Results
 React Property Cards
 ```
 
-## AI Property Search
+### AI Property Search
 
 ```text
 User Question
@@ -320,7 +320,7 @@ Matching Properties
 AI Response + Property Cards
 ```
 
-## Favorites
+### Favorites
 
 ```text
 User
@@ -340,7 +340,7 @@ MongoDB
 Favorite Updated
 ```
 
-## Property Booking
+### Property Booking
 
 ```text
 User
@@ -360,7 +360,7 @@ Booking Saved
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 Real-Estate-Website-with-AI-Chatbot/
@@ -458,11 +458,11 @@ Real-Estate-Website-with-AI-Chatbot/
 
 ---
 
-# 🗄️ Database Design
+## 🗄️ Database Design
 
 The application uses MongoDB Atlas with Prisma ORM.
 
-## User
+### User
 
 The user collection stores information such as:
 
@@ -476,7 +476,7 @@ User
 └── residencies
 ```
 
-## Residency
+### Residency
 
 The residency collection stores property information such as:
 
@@ -510,11 +510,11 @@ Residency
 
 ---
 
-# 🔌 REST API Endpoints
+## 🔌 REST API Endpoints
 
-## Residency APIs
+### Residency APIs
 
-### Create Property
+#### Create Property
 
 ```text
 POST /api/residency/create
@@ -522,7 +522,7 @@ POST /api/residency/create
 
 Creates a new property listing.
 
-### Get All Properties
+#### Get All Properties
 
 ```text
 GET /api/residency/allresd
@@ -530,7 +530,7 @@ GET /api/residency/allresd
 
 Returns all available properties.
 
-### Get Property
+#### Get Property
 
 ```text
 GET /api/residency/:id
@@ -538,11 +538,9 @@ GET /api/residency/:id
 
 Returns details of a specific property.
 
----
+### User APIs
 
-## User APIs
-
-### Register
+#### Register
 
 ```text
 POST /api/user/register
@@ -550,7 +548,7 @@ POST /api/user/register
 
 Creates a user account.
 
-### Book Visit
+#### Book Visit
 
 ```text
 POST /api/user/bookVisit/:id
@@ -558,7 +556,7 @@ POST /api/user/bookVisit/:id
 
 Books a visit for a property.
 
-### Get Bookings
+#### Get Bookings
 
 ```text
 POST /api/user/allBookings
@@ -566,7 +564,7 @@ POST /api/user/allBookings
 
 Returns the user's booked visits.
 
-### Cancel Booking
+#### Cancel Booking
 
 ```text
 POST /api/user/removeBooking/:id
@@ -574,7 +572,7 @@ POST /api/user/removeBooking/:id
 
 Cancels a property visit.
 
-### Add / Remove Favorite
+#### Add / Remove Favorite
 
 ```text
 POST /api/user/toFav/:rid
@@ -582,7 +580,7 @@ POST /api/user/toFav/:rid
 
 Adds or removes a property from favorites.
 
-### Get Favorites
+#### Get Favorites
 
 ```text
 POST /api/user/allFav
@@ -592,7 +590,7 @@ Returns the user's favorite properties.
 
 ---
 
-# 🤖 AI Chatbot
+## 🤖 AI Chatbot
 
 The Havenly AI assistant uses Google Gemini together with a custom property filtering engine.
 
@@ -602,6 +600,7 @@ For example:
 
 ```text
 User:
+
 "Show me 3 BHK villas in Bangalore under 2 crore"
 ```
 
@@ -620,7 +619,7 @@ This helps the chatbot provide property recommendations based on actual applicat
 
 ---
 
-# 🔎 Supported AI Search Examples
+## 🔎 Supported AI Search Examples
 
 Users can search using natural language such as:
 
@@ -658,7 +657,7 @@ Show properties near Whitefield
 
 ---
 
-# 🌍 Property Locations
+## 🌍 Property Locations
 
 The application currently contains property data from locations including:
 
@@ -674,9 +673,9 @@ Property coordinates are stored in the database and used for displaying the corr
 
 ---
 
-# 🚀 Getting Started
+## 🚀 Getting Started
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Adarshaachary/havenly-real-estate-ai.git
@@ -690,7 +689,7 @@ cd havenly-real-estate-ai
 
 ---
 
-# 💻 Frontend Setup
+## 💻 Frontend Setup
 
 Move into the client directory:
 
@@ -718,9 +717,9 @@ http://localhost:5173
 
 ---
 
-# ⚙️ Backend Setup
+## ⚙️ Backend Setup
 
-Open another terminal and move to the server:
+Open another terminal and move to the server directory:
 
 ```bash
 cd server
@@ -734,17 +733,11 @@ npm install
 
 Configure the required environment variables in the server `.env` file.
 
-Then start the backend:
-
-```bash
-npm run dev
-```
-
-or use the start command configured in the server `package.json`.
+Then start the backend using the development command configured in `server/package.json`.
 
 ---
 
-# 🔐 Environment Variables
+## 🔐 Environment Variables
 
 The application uses environment variables for sensitive configuration.
 
@@ -759,7 +752,7 @@ Do not commit actual API keys, database passwords, or other private credentials 
 
 ---
 
-# 🌱 Database Seeding
+## 🌱 Database Seeding
 
 The project includes a Prisma seed script for creating sample users and property data.
 
@@ -769,7 +762,7 @@ The seeded dataset contains multiple properties across different cities and prop
 
 ---
 
-# 🧪 Testing the Application
+## 🧪 Testing the Application
 
 The main application flow can be tested using:
 
@@ -803,7 +796,7 @@ The AI chatbot can separately be tested using natural-language property searches
 
 ---
 
-# 📌 Current Project Status
+## 📌 Current Project Status
 
 ### Implemented
 
@@ -842,7 +835,7 @@ The AI chatbot can separately be tested using natural-language property searches
 
 ---
 
-# 🔮 Future Enhancements
+## 🔮 Future Enhancements
 
 Possible future improvements include:
 
@@ -864,7 +857,7 @@ Possible future improvements include:
 
 ---
 
-# 🎯 Learning Outcomes
+## 🎯 Learning Outcomes
 
 Through this project, I worked with:
 
@@ -879,7 +872,7 @@ Through this project, I worked with:
 * Authentication concepts
 * API integration
 * Google Gemini API
-* Natural-language processing for property search
+* Natural-language property search
 * Custom filtering logic
 * Map integration
 * Git and GitHub
@@ -888,7 +881,7 @@ Through this project, I worked with:
 
 ---
 
-# 💼 Resume Description
+## 💼 Resume Description
 
 ### Havenly — Real Estate Website with AI Chatbot
 
@@ -901,7 +894,7 @@ Through this project, I worked with:
 
 ---
 
-# 👨‍💻 Developer
+## 👨‍💻 Developer
 
 **Adarsha Acharya**
 
@@ -911,14 +904,14 @@ Bengaluru, Karnataka, India
 
 ### GitHub
 
-https://github.com/Adarshaachary
+[Adarsha Acharya](https://github.com/Adarshaachary)
 
 ### Project Repository
 
-https://github.com/Adarshaachary/havenly-real-estate-ai
+[Havenly — Real Estate Website with AI Chatbot](https://github.com/Adarshaachary/havenly-real-estate-ai)
 
 ---
 
-# 📄 License
+## 📄 License
 
 This project is intended for educational, portfolio, and demonstration purposes.
