@@ -11,7 +11,6 @@ import {
   MessageCircle,
   Phone,
   Share2,
-  Sparkles,
   Video,
   X,
 } from 'lucide-react'
@@ -44,104 +43,79 @@ export default function PropertyDetails() {
   const [calendarMonth, setCalendarMonth] = useState(new Date())
   const [bookingError, setBookingError] = useState('')
 
-  useEffect(() => {
-    getProperty(id).then((item) => {
-      setProperty(item)
+  // =========================================================
+  // LOAD PROPERTY
+  // =========================================================
 
-      if (item) {
-        setSaved(getFavorites().includes(item.id))
+  useEffect(() => {
+    let cancelled = false
+
+    const loadProperty = async () => {
+      try {
+        const item = await getProperty(id)
+
+        if (cancelled) return
+
+        setProperty(item)
+
+        if (item) {
+          setSaved(getFavorites().includes(item.id))
+        }
+      } catch (error) {
+        console.error('Failed to load property:', error)
+
+        if (!cancelled) {
+          setProperty(null)
+        }
       }
-    })
+    }
+
+    if (id) {
+      loadProperty()
+    }
+
+    return () => {
+      cancelled = true
+    }
   }, [id])
+
+  // =========================================================
+  // IMAGE DATA
+  // =========================================================
 
   const images = useMemo(() => {
     if (!property) return []
 
-    if (Array.isArray(property.images) && property.images.length > 0) {
+    if (
+      Array.isArray(property.images) &&
+      property.images.length > 0
+    ) {
       return property.images
     }
 
     return property.image ? [property.image] : []
   }, [property])
 
+  // =========================================================
+  // KEEP ACTIVE IMAGE VALID
+  // =========================================================
+
   useEffect(() => {
+    if (images.length === 0) {
+      if (activeImage !== 0) {
+        setActiveImage(0)
+      }
+
+      return
+    }
+
     if (activeImage >= images.length) {
       setActiveImage(0)
     }
   }, [images.length, activeImage])
 
-  if (!property) {
-    return <LoadingSpinner />
-  }
-
-  const facilities = property.facilities || {}
-
-  const formattedPrice = new Intl.NumberFormat('en-IN').format(
-    property.price || 0
-  )
-
-  const locationText = [property.address, property.city]
-    .filter(Boolean)
-    .join(', ')
-
-  // =========================================================
-  // MAP LOCATION
-  // =========================================================
-  // Use the latitude and longitude stored in the database.
-  // This prevents OpenStreetMap from guessing the location
-  // from the property title/address.
-  // =========================================================
-
-  const latitude = Number(property.latitude)
-  const longitude = Number(property.longitude)
-
-  const hasCoordinates =
-    Number.isFinite(latitude) &&
-    Number.isFinite(longitude) &&
-    latitude >= -90 &&
-    latitude <= 90 &&
-    longitude >= -180 &&
-    longitude <= 180
-
-  // Small area around the stored coordinate.
-  // This keeps the property location visible without zooming
-  // too far away from the area.
-  const mapDelta = 0.015
-
-  const mapQuery = encodeURIComponent(
-    locationText || property.city || property.title
-  )
-
-  const mapUrl = hasCoordinates
-    ? `https://www.openstreetmap.org/export/embed.html?bbox=${
-        longitude - mapDelta
-      },${
-        latitude - mapDelta
-      },${
-        longitude + mapDelta
-      },${
-        latitude + mapDelta
-      }&layer=mapnik&marker=${latitude},${longitude}`
-    : `https://www.openstreetmap.org/export/embed.html?search=${mapQuery}`
-
-  const exploreMapUrl = hasCoordinates
-    ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=15/${latitude}/${longitude}`
-    : `https://www.openstreetmap.org/search?query=${mapQuery}`
-
   // =========================================================
   // NEARBY PLACES
-  // =========================================================
-  // Supports both:
-  //
-  // 1. Array:
-  //    ["Metro Station", "Hospital", "School"]
-  //
-  // 2. Object:
-  //    {
-  //      metro: "JP Nagar Metro Station",
-  //      school: "Brigade School",
-  //      hospital: "Apollo Hospitals"
-  //    }
   // =========================================================
 
   const nearbyPlaces = useMemo(() => {
@@ -190,6 +164,65 @@ export default function PropertyDetails() {
   }, [property])
 
   // =========================================================
+  // LOADING
+  // =========================================================
+
+  if (!property) {
+    return <LoadingSpinner />
+  }
+
+  // =========================================================
+  // PROPERTY INFORMATION
+  // =========================================================
+
+  const facilities = property.facilities || {}
+
+  const formattedPrice = new Intl.NumberFormat('en-IN').format(
+    property.price || 0
+  )
+
+  const locationText = [property.address, property.city]
+    .filter(Boolean)
+    .join(', ')
+
+  // =========================================================
+  // MAP LOCATION
+  // =========================================================
+
+  const latitude = Number(property.latitude)
+  const longitude = Number(property.longitude)
+
+  const hasCoordinates =
+    Number.isFinite(latitude) &&
+    Number.isFinite(longitude) &&
+    latitude >= -90 &&
+    latitude <= 90 &&
+    longitude >= -180 &&
+    longitude <= 180
+
+  const mapDelta = 0.015
+
+  const mapQuery = encodeURIComponent(
+    locationText || property.city || property.title
+  )
+
+  const mapUrl = hasCoordinates
+    ? `https://www.openstreetmap.org/export/embed.html?bbox=${
+        longitude - mapDelta
+      },${
+        latitude - mapDelta
+      },${
+        longitude + mapDelta
+      },${
+        latitude + mapDelta
+      }&layer=mapnik&marker=${latitude},${longitude}`
+    : `https://www.openstreetmap.org/export/embed.html?search=${mapQuery}`
+
+  const exploreMapUrl = hasCoordinates
+    ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=15/${latitude}/${longitude}`
+    : `https://www.openstreetmap.org/search?query=${mapQuery}`
+
+  // =========================================================
   // FAVORITE
   // =========================================================
 
@@ -205,11 +238,7 @@ export default function PropertyDetails() {
   const openBooking = () => {
     setShowBooking(true)
     setBookingError('')
-
-    // Start calendar from current month
     setCalendarMonth(new Date())
-
-    // Clear previous selection
     setSelectedDate(null)
     setSelectedTime('')
   }
@@ -282,20 +311,36 @@ export default function PropertyDetails() {
     const firstDay = new Date(year, month, 1).getDay()
     const daysInMonth = new Date(year, month + 1, 0).getDate()
 
-    const previousMonthDays = new Date(year, month, 0).getDate()
+    const previousMonthDays = new Date(
+      year,
+      month,
+      0
+    ).getDate()
 
     const days = []
 
     // Previous month's visible days
-    for (let index = firstDay - 1; index >= 0; index--) {
+    for (
+      let index = firstDay - 1;
+      index >= 0;
+      index--
+    ) {
       days.push({
-        date: new Date(year, month - 1, previousMonthDays - index),
+        date: new Date(
+          year,
+          month - 1,
+          previousMonthDays - index
+        ),
         currentMonth: false,
       })
     }
 
     // Current month
-    for (let day = 1; day <= daysInMonth; day++) {
+    for (
+      let day = 1;
+      day <= daysInMonth;
+      day++
+    ) {
       days.push({
         date: new Date(year, month, day),
         currentMonth: true,
@@ -307,7 +352,11 @@ export default function PropertyDetails() {
 
     while (days.length < 42) {
       days.push({
-        date: new Date(year, month + 1, nextDay),
+        date: new Date(
+          year,
+          month + 1,
+          nextDay
+        ),
         currentMonth: false,
       })
 
@@ -319,10 +368,14 @@ export default function PropertyDetails() {
 
   const calendarDays = getCalendarDays()
 
-  const monthTitle = calendarMonth.toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric',
-  })
+  const monthTitle =
+    calendarMonth.toLocaleDateString(
+      'en-US',
+      {
+        month: 'long',
+        year: 'numeric',
+      }
+    )
 
   const goPreviousMonth = () => {
     const previousMonth = new Date(
@@ -354,8 +407,14 @@ export default function PropertyDetails() {
     )
   }
 
-  const selectDate = (date, currentMonth) => {
-    if (!currentMonth || isPastDate(date)) {
+  const selectDate = (
+    date,
+    currentMonth
+  ) => {
+    if (
+      !currentMonth ||
+      isPastDate(date)
+    ) {
       return
     }
 
@@ -364,13 +423,18 @@ export default function PropertyDetails() {
   }
 
   const formatSelectedDate = () => {
-    if (!selectedDate) return 'Select a date'
+    if (!selectedDate) {
+      return 'Select a date'
+    }
 
-    return selectedDate.toLocaleDateString('en-US', {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric',
-    })
+    return selectedDate.toLocaleDateString(
+      'en-US',
+      {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+      }
+    )
   }
 
   // =========================================================
@@ -410,7 +474,9 @@ export default function PropertyDetails() {
     if (images.length <= 1) return
 
     setActiveImage((current) =>
-      current === images.length - 1 ? 0 : current + 1
+      current === images.length - 1
+        ? 0
+        : current + 1
     )
   }
 
@@ -418,7 +484,9 @@ export default function PropertyDetails() {
     if (images.length <= 1) return
 
     setActiveImage((current) =>
-      current === 0 ? images.length - 1 : current - 1
+      current === 0
+        ? images.length - 1
+        : current - 1
     )
   }
 
@@ -435,7 +503,10 @@ export default function PropertyDetails() {
             BACK
             ===================================================== */}
 
-        <Link className="back-link" to="/properties">
+        <Link
+          className="back-link"
+          to="/properties"
+        >
           <ArrowLeft size={16} />
           Back to properties
         </Link>
@@ -445,9 +516,7 @@ export default function PropertyDetails() {
             ===================================================== */}
 
         <section className="detail-gallery">
-
           <div className="detail-main-image">
-
             <img
               src={currentImage}
               alt={property.title}
@@ -456,9 +525,10 @@ export default function PropertyDetails() {
             <div className="detail-image-overlay" />
 
             <div className="detail-image-top">
-
               <span className="detail-property-tag">
-                {property.type || property.propertyType || 'Residence'}
+                {property.type ||
+                  property.propertyType ||
+                  'Residence'}
               </span>
 
               <button
@@ -470,10 +540,13 @@ export default function PropertyDetails() {
               >
                 <Heart
                   size={18}
-                  fill={saved ? 'currentColor' : 'none'}
+                  fill={
+                    saved
+                      ? 'currentColor'
+                      : 'none'
+                  }
                 />
               </button>
-
             </div>
 
             {images.length > 1 && (
@@ -495,39 +568,51 @@ export default function PropertyDetails() {
                 </button>
 
                 <div className="gallery-counter">
-                  {activeImage + 1} / {images.length}
+                  {activeImage + 1} /{' '}
+                  {images.length}
                 </div>
               </>
             )}
 
             <div className="detail-image-caption">
-              <span>Featured residence</span>
-              <strong>{property.title}</strong>
-            </div>
+              <span>
+                Featured residence
+              </span>
 
+              <strong>
+                {property.title}
+              </strong>
+            </div>
           </div>
 
           {images.length > 1 && (
             <div className="detail-thumbnails">
-
-              {images.map((image, index) => (
-                <button
-                  key={`${image}-${index}`}
-                  className={`detail-thumbnail ${
-                    activeImage === index ? 'active' : ''
-                  }`}
-                  onClick={() => setActiveImage(index)}
-                >
-                  <img
-                    src={image}
-                    alt={`${property.title} ${index + 1}`}
-                  />
-                </button>
-              ))}
-
+              {images.map(
+                (image, index) => (
+                  <button
+                    key={`${image}-${index}`}
+                    className={`detail-thumbnail ${
+                      activeImage === index
+                        ? 'active'
+                        : ''
+                    }`}
+                    onClick={() =>
+                      setActiveImage(
+                        index
+                      )
+                    }
+                  >
+                    <img
+                      src={image}
+                      alt={`${property.title} ${
+                        index + 1
+                      }`}
+                    />
+                  </button>
+                )
+              )}
             </div>
           )}
-
         </section>
 
         {/* =====================================================
@@ -535,17 +620,14 @@ export default function PropertyDetails() {
             ===================================================== */}
 
         <section className="detail-information">
-
           <div className="detail-main-information">
-
             <div className="detail-location">
-
               <MapPin size={15} />
 
               <span>
-                {locationText || 'Location available on request'}
+                {locationText ||
+                  'Location available on request'}
               </span>
-
             </div>
 
             <h1>{property.title}</h1>
@@ -556,7 +638,6 @@ export default function PropertyDetails() {
             </p>
 
             <div className="detail-price-row">
-
               <div className="detail-price">
                 ₹{formattedPrice}
                 <span>asking price</span>
@@ -570,7 +651,6 @@ export default function PropertyDetails() {
                 <Share2 size={17} />
                 Share
               </button>
-
             </div>
 
             {/* =================================================
@@ -578,35 +658,42 @@ export default function PropertyDetails() {
                 ================================================= */}
 
             <div className="detail-stats">
-
               <div className="detail-stat">
                 <strong>
-                  {facilities.bedrooms || '-'}
+                  {facilities.bedrooms ||
+                    '-'}
                 </strong>
+
                 <span>Bedrooms</span>
               </div>
 
               <div className="detail-stat">
                 <strong>
-                  {facilities.bathrooms || '-'}
+                  {facilities.bathrooms ||
+                    '-'}
                 </strong>
+
                 <span>Bathrooms</span>
               </div>
 
               <div className="detail-stat">
                 <strong>
-                  {facilities.parking || '-'}
+                  {facilities.parking ||
+                    '-'}
                 </strong>
+
                 <span>Parking</span>
               </div>
 
               <div className="detail-stat">
                 <strong>
-                  {property.area || facilities.area || '-'}
+                  {property.area ||
+                    facilities.area ||
+                    '-'}
                 </strong>
+
                 <span>Area</span>
               </div>
-
             </div>
 
             {/* =================================================
@@ -614,7 +701,6 @@ export default function PropertyDetails() {
                 ================================================= */}
 
             <div className="detail-actions">
-
               <button
                 className="primary-button detail-book-button"
                 onClick={openBooking}
@@ -625,66 +711,27 @@ export default function PropertyDetails() {
 
               <button
                 className={`secondary-button ${
-                  saved ? 'is-saved' : ''
+                  saved
+                    ? 'is-saved'
+                    : ''
                 }`}
                 onClick={save}
               >
                 <Heart
                   size={17}
-                  fill={saved ? 'currentColor' : 'none'}
+                  fill={
+                    saved
+                      ? 'currentColor'
+                      : 'none'
+                  }
                 />
 
-                {saved ? 'Saved' : 'Save property'}
+                {saved
+                  ? 'Saved'
+                  : 'Save property'}
               </button>
-
             </div>
-
           </div>
-
-          {/* =====================================================
-              AI CARD
-              ===================================================== */}
-
-          <aside className="detail-ai-card">
-
-            <div className="detail-ai-header">
-
-              <div className="detail-ai-icon">
-                <Sparkles size={16} />
-              </div>
-
-              <div>
-                <strong>Havenly AI</strong>
-                <span>Property assistant</span>
-              </div>
-
-              <span className="detail-ai-status">
-                <span />
-                Online
-              </span>
-
-            </div>
-
-            <div className="detail-ai-body">
-
-              <p>
-                Have questions about this property?
-                Ask Havenly AI about the location, property,
-                budget or your visit.
-              </p>
-
-              <Link
-                to="/"
-                className="detail-ai-button"
-              >
-                Ask Havenly AI
-                <ArrowRight size={15} />
-              </Link>
-
-            </div>
-
-          </aside>
-
         </section>
 
         {/* =====================================================
@@ -695,18 +742,19 @@ export default function PropertyDetails() {
           <div
             className="havenly-booking-overlay"
             onMouseDown={(event) => {
-              if (event.target === event.currentTarget) {
+              if (
+                event.target ===
+                event.currentTarget
+              ) {
                 closeBooking()
               }
             }}
           >
-
             <div className="havenly-booking-panel">
 
               {/* HEADER */}
 
               <div className="havenly-booking-header">
-
                 <div>
                   <span className="havenly-booking-eyebrow">
                     Schedule a visit
@@ -717,25 +765,26 @@ export default function PropertyDetails() {
                   </h2>
 
                   <p>
-                    Choose a convenient date and time for your
+                    Choose a convenient
+                    date and time for your
                     property visit.
                   </p>
                 </div>
 
                 <button
                   className="havenly-booking-close"
-                  onClick={closeBooking}
+                  onClick={
+                    closeBooking
+                  }
                   aria-label="Close booking"
                 >
                   <X size={18} />
                 </button>
-
               </div>
 
               {/* PROPERTY SUMMARY */}
 
               <div className="havenly-booking-property">
-
                 <img
                   src={currentImage}
                   alt={property.title}
@@ -750,47 +799,54 @@ export default function PropertyDetails() {
 
                   <p>
                     <MapPin size={12} />
-                    {locationText || property.city}
+                    {locationText ||
+                      property.city}
                   </p>
                 </div>
-
               </div>
 
               {/* CALENDAR */}
 
               <div className="havenly-booking-calendar">
-
                 <div className="havenly-calendar-header">
-
                   <div>
-                    <span>SELECT DATE</span>
-                    <strong>{monthTitle}</strong>
+                    <span>
+                      SELECT DATE
+                    </span>
+
+                    <strong>
+                      {monthTitle}
+                    </strong>
                   </div>
 
                   <div className="havenly-calendar-navigation">
-
                     <button
                       type="button"
-                      onClick={goPreviousMonth}
+                      onClick={
+                        goPreviousMonth
+                      }
                       aria-label="Previous month"
                     >
-                      <ChevronLeft size={17} />
+                      <ChevronLeft
+                        size={17}
+                      />
                     </button>
 
                     <button
                       type="button"
-                      onClick={goNextMonth}
+                      onClick={
+                        goNextMonth
+                      }
                       aria-label="Next month"
                     >
-                      <ChevronRight size={17} />
+                      <ChevronRight
+                        size={17}
+                      />
                     </button>
-
                   </div>
-
                 </div>
 
                 <div className="havenly-calendar-weekdays">
-
                   {[
                     'SUN',
                     'MON',
@@ -804,64 +860,95 @@ export default function PropertyDetails() {
                       {day}
                     </span>
                   ))}
-
                 </div>
 
                 <div className="havenly-calendar-grid">
+                  {calendarDays.map(
+                    (
+                      {
+                        date,
+                        currentMonth,
+                      },
+                      index
+                    ) => {
+                      const disabled =
+                        !currentMonth ||
+                        isPastDate(
+                          date
+                        )
 
-                  {calendarDays.map(({ date, currentMonth }, index) => {
+                      const selected =
+                        selectedDate &&
+                        isSameDay(
+                          date,
+                          selectedDate
+                        )
 
-                    const disabled =
-                      !currentMonth || isPastDate(date)
+                      const isToday =
+                        isSameDay(
+                          date,
+                          today
+                        )
 
-                    const selected =
-                      selectedDate &&
-                      isSameDay(date, selectedDate)
+                      return (
+                        <button
+                          key={`${date.toISOString()}-${index}`}
+                          type="button"
+                          className={[
+                            'havenly-calendar-day',
+                            !currentMonth
+                              ? 'outside-month'
+                              : '',
+                            disabled
+                              ? 'disabled'
+                              : '',
+                            selected
+                              ? 'selected'
+                              : '',
+                            isToday
+                              ? 'today'
+                              : '',
+                          ].join(' ')}
+                          disabled={
+                            disabled
+                          }
+                          onClick={() =>
+                            selectDate(
+                              date,
+                              currentMonth
+                            )
+                          }
+                        >
+                          <span>
+                            {date.getDate()}
+                          </span>
 
-                    const isToday =
-                      isSameDay(date, today)
-
-                    return (
-                      <button
-                        key={`${date.toISOString()}-${index}`}
-                        type="button"
-                        className={[
-                          'havenly-calendar-day',
-                          !currentMonth ? 'outside-month' : '',
-                          disabled ? 'disabled' : '',
-                          selected ? 'selected' : '',
-                          isToday ? 'today' : '',
-                        ].join(' ')}
-                        disabled={disabled}
-                        onClick={() =>
-                          selectDate(date, currentMonth)
-                        }
-                      >
-                        <span>
-                          {date.getDate()}
-                        </span>
-
-                        {isToday && currentMonth && (
-                          <small>Today</small>
-                        )}
-                      </button>
-                    )
-                  })}
-
+                          {isToday &&
+                            currentMonth && (
+                              <small>
+                                Today
+                              </small>
+                            )}
+                        </button>
+                      )
+                    }
+                  )}
                 </div>
-
               </div>
 
               {/* SELECTED DATE */}
 
               <div className="havenly-selected-date">
-
                 <div className="havenly-selected-date-icon">
-                  <CalendarDays size={17} />
+                  <CalendarDays
+                    size={17}
+                  />
                 </div>
 
                 <div>
-                  <span>YOUR VISIT</span>
+                  <span>
+                    YOUR VISIT
+                  </span>
 
                   <strong>
                     {formatSelectedDate()}
@@ -871,22 +958,23 @@ export default function PropertyDetails() {
                 {selectedDate && (
                   <Check size={17} />
                 )}
-
               </div>
 
               {/* TIME */}
 
               <div className="havenly-time-section">
-
                 <div className="havenly-time-heading">
-                  <span>SELECT TIME</span>
+                  <span>
+                    SELECT TIME
+                  </span>
+
                   <small>
-                    Choose your preferred slot
+                    Choose your preferred
+                    slot
                   </small>
                 </div>
 
                 <div className="havenly-time-grid">
-
                   {[
                     '09:00 AM',
                     '10:30 AM',
@@ -899,25 +987,31 @@ export default function PropertyDetails() {
                       type="button"
                       key={time}
                       className={
-                        selectedTime === time
+                        selectedTime ===
+                        time
                           ? 'active'
                           : ''
                       }
                       onClick={() => {
-                        setSelectedTime(time)
-                        setBookingError('')
+                        setSelectedTime(
+                          time
+                        )
+                        setBookingError(
+                          ''
+                        )
                       }}
                     >
-                      {selectedTime === time && (
-                        <Check size={13} />
+                      {selectedTime ===
+                        time && (
+                        <Check
+                          size={13}
+                        />
                       )}
 
                       {time}
                     </button>
                   ))}
-
                 </div>
-
               </div>
 
               {/* ERROR */}
@@ -931,11 +1025,12 @@ export default function PropertyDetails() {
               {/* FOOTER */}
 
               <div className="havenly-booking-footer">
-
                 <button
                   type="button"
                   className="havenly-booking-cancel"
-                  onClick={closeBooking}
+                  onClick={
+                    closeBooking
+                  }
                 >
                   Cancel
                 </button>
@@ -943,16 +1038,17 @@ export default function PropertyDetails() {
                 <button
                   type="button"
                   className="havenly-booking-confirm"
-                  onClick={confirmBooking}
+                  onClick={
+                    confirmBooking
+                  }
                 >
                   Confirm visit
-                  <ArrowRight size={15} />
+                  <ArrowRight
+                    size={15}
+                  />
                 </button>
-
               </div>
-
             </div>
-
           </div>
         )}
 
@@ -967,16 +1063,19 @@ export default function PropertyDetails() {
               =================================================== */}
 
           <div className="detail-about">
-
             <div className="detail-section-heading">
               <span>01</span>
-              <p>About this property</p>
+              <p>
+                About this property
+              </p>
             </div>
 
             <h2>
               A place designed
               <br />
-              <em>for everyday living.</em>
+              <em>
+                for everyday living.
+              </em>
             </h2>
 
             <p>
@@ -985,7 +1084,6 @@ export default function PropertyDetails() {
             </p>
 
             <div className="detail-features">
-
               {[
                 'Comfortable living spaces',
                 'Convenient location',
@@ -997,12 +1095,12 @@ export default function PropertyDetails() {
                   key={feature}
                 >
                   <Check size={14} />
-                  <span>{feature}</span>
+                  <span>
+                    {feature}
+                  </span>
                 </div>
               ))}
-
             </div>
-
           </div>
 
           {/* ===================================================
@@ -1010,17 +1108,16 @@ export default function PropertyDetails() {
               =================================================== */}
 
           <div className="detail-map-section">
-
             <div className="detail-section-heading">
               <span>02</span>
-              <p>Property location</p>
+              <p>
+                Property location
+              </p>
             </div>
 
             <div className="havenly-map">
 
-              {/* =================================================
-                  ACCURATE COORDINATE-BASED MAP
-                  ================================================= */}
+              {/* ACCURATE COORDINATE-BASED MAP */}
 
               <iframe
                 title={`Map showing ${property.title}`}
@@ -1031,12 +1128,12 @@ export default function PropertyDetails() {
               <div className="havenly-map-overlay" />
 
               <div className="havenly-map-top">
-
                 <div className="havenly-map-location">
                   <MapPin size={14} />
 
                   <span>
-                    {property.city || 'Location'}
+                    {property.city ||
+                      'Location'}
                   </span>
                 </div>
 
@@ -1047,43 +1144,34 @@ export default function PropertyDetails() {
                     ? 'Location verified'
                     : 'Location'}
                 </div>
-
               </div>
 
-              {/* =================================================
-                  PROPERTY MARKER
-                  ================================================= */}
+              {/* PROPERTY MARKER */}
 
               <div className="havenly-property-marker">
-
                 <div className="havenly-marker-pulse" />
 
                 <div className="havenly-marker-icon">
                   <MapPin size={19} />
                 </div>
-
               </div>
 
-              {/* =================================================
-                  PROPERTY CARD ON MAP
-                  ================================================= */}
+              {/* PROPERTY CARD ON MAP */}
 
               <div className="havenly-map-card">
-
                 <div className="havenly-map-card-image">
-
                   <img
                     src={
                       property.image ||
                       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80'
                     }
-                    alt={property.title}
+                    alt={
+                      property.title
+                    }
                   />
-
                 </div>
 
                 <div className="havenly-map-card-content">
-
                   <span className="havenly-map-card-label">
                     YOUR PROPERTY
                   </span>
@@ -1093,7 +1181,6 @@ export default function PropertyDetails() {
                   </strong>
 
                   <div className="havenly-map-card-location">
-
                     <MapPin size={13} />
 
                     <span>
@@ -1101,52 +1188,42 @@ export default function PropertyDetails() {
                         property.city ||
                         'Location available'}
                     </span>
-
                   </div>
-
                 </div>
-
               </div>
 
-              {/* =================================================
-                  NEARBY PLACES
-                  ================================================= */}
+              {/* NEARBY PLACES */}
 
-              {nearbyPlaces.length > 0 && (
-
+              {nearbyPlaces.length >
+                0 && (
                 <div className="havenly-nearby">
-
                   <span className="havenly-nearby-title">
                     Nearby
                   </span>
 
                   <div className="havenly-nearby-list">
+                    {nearbyPlaces.map(
+                      (
+                        place,
+                        index
+                      ) => (
+                        <span
+                          className="havenly-nearby-chip"
+                          key={`${place}-${index}`}
+                        >
+                          <span className="havenly-nearby-dot" />
 
-                    {nearbyPlaces.map((place, index) => (
-
-                      <span
-                        className="havenly-nearby-chip"
-                        key={`${place}-${index}`}
-                      >
-                        <span className="havenly-nearby-dot" />
-
-                        {place}
-                      </span>
-
-                    ))}
-
+                          {place}
+                        </span>
+                      )
+                    )}
                   </div>
-
                 </div>
-
               )}
 
-              {/* =================================================
-                  MAP CONTROLS
-                  ================================================= */}
+              {/* MAP CONTROLS */}
 
               <div className="havenly-map-controls">
-
                 <button
                   type="button"
                   aria-label="Zoom in"
@@ -1160,17 +1237,12 @@ export default function PropertyDetails() {
                 >
                   −
                 </button>
-
               </div>
 
-              {/* =================================================
-                  MAP BOTTOM
-                  ================================================= */}
+              {/* MAP BOTTOM */}
 
               <div className="havenly-map-bottom">
-
                 <div>
-
                   <span>
                     {hasCoordinates
                       ? 'PROPERTY AREA'
@@ -1182,7 +1254,6 @@ export default function PropertyDetails() {
                       property.city ||
                       'Location available'}
                   </strong>
-
                 </div>
 
                 <a
@@ -1192,15 +1263,13 @@ export default function PropertyDetails() {
                   className="havenly-map-explore"
                 >
                   Explore map
-                  <ArrowRight size={14} />
+                  <ArrowRight
+                    size={14}
+                  />
                 </a>
-
               </div>
-
             </div>
-
           </div>
-
         </section>
 
         {/* =====================================================
@@ -1208,26 +1277,29 @@ export default function PropertyDetails() {
             ===================================================== */}
 
         <section className="detail-contact">
-
           <div className="detail-contact-copy">
-
             <div className="detail-section-heading">
               <span>03</span>
-              <p>Contact us anytime</p>
+              <p>
+                Contact us anytime
+              </p>
             </div>
 
             <h2>
               Hassle-free
               <br />
-              <em>property support.</em>
+              <em>
+                property support.
+              </em>
             </h2>
 
             <p>
-              Need more information? Reach out to the Havenly
-              team and get help with this property, scheduling
-              a visit or understanding your options.
+              Need more information?
+              Reach out to the Havenly
+              team and get help with this
+              property, scheduling a visit
+              or understanding your options.
             </p>
-
           </div>
 
           <div className="contact-options">
@@ -1236,102 +1308,103 @@ export default function PropertyDetails() {
               href="tel:+919945138608"
               className="contact-card"
             >
-
               <div className="contact-card-top">
-
                 <div className="contact-icon">
                   <Phone size={16} />
                 </div>
 
                 <div>
                   <strong>Call</strong>
-                  <span>+91 9945138608</span>
+                  <span>
+                    +91 9945138608
+                  </span>
                 </div>
-
               </div>
 
               <span className="contact-card-button">
                 Call now
               </span>
-
             </a>
 
             <Link
-              to="/"
+              to="/properties"
               className="contact-card"
             >
-
               <div className="contact-card-top">
-
                 <div className="contact-icon">
-                  <MessageCircle size={16} />
+                  <MessageCircle
+                    size={16}
+                  />
                 </div>
 
                 <div>
-                  <strong>Chat with AI</strong>
-                  <span>Get instant assistance</span>
-                </div>
+                  <strong>
+                    Chat with AI
+                  </strong>
 
+                  <span>
+                    Get instant assistance
+                  </span>
+                </div>
               </div>
 
               <span className="contact-card-button">
                 Chat now
               </span>
-
             </Link>
 
             <a
               href="tel:+919945138608"
               className="contact-card"
             >
-
               <div className="contact-card-top">
-
                 <div className="contact-icon">
                   <Video size={16} />
                 </div>
 
                 <div>
-                  <strong>Video Call</strong>
-                  <span>+91 9945138608</span>
-                </div>
+                  <strong>
+                    Video Call
+                  </strong>
 
+                  <span>
+                    +91 9945138608
+                  </span>
+                </div>
               </div>
 
               <span className="contact-card-button">
                 Video call now
               </span>
-
             </a>
 
             <a
               href="sms:+919945138608"
               className="contact-card"
             >
-
               <div className="contact-card-top">
-
                 <div className="contact-icon">
                   <Mail size={16} />
                 </div>
 
                 <div>
-                  <strong>Message</strong>
-                  <span>Send us a message</span>
-                </div>
+                  <strong>
+                    Message
+                  </strong>
 
+                  <span>
+                    Send us a message
+                  </span>
+                </div>
               </div>
 
               <span className="contact-card-button">
                 Message now
               </span>
-
             </a>
 
           </div>
-
         </section>
-
       </div>
     </main>
   )
