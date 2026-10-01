@@ -1,0 +1,451 @@
+/* =========================================================
+   FAVORITES / SAVED HOMES
+   Stone crumble removal animation
+   ========================================================= */
+
+.favorite-property-wrapper {
+  position: relative;
+  min-width: 0;
+  transform-origin: center center;
+}
+
+/* ---------------------------------------------------------
+   Removing animation
+   --------------------------------------------------------- */
+
+.favorite-property-removing {
+  z-index: 5;
+  animation: favoriteStoneCollapse 0.85s ease-in forwards;
+  pointer-events: none;
+}
+
+/*
+   Small dust/cloud effect behind the card
+*/
+.favorite-property-removing::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  height: 35%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(80, 70, 60, 0.18) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 40% 70%,
+      rgba(80, 70, 60, 0.14) 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 65% 45%,
+      rgba(80, 70, 60, 0.16) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(80, 70, 60, 0.13) 0 4px,
+      transparent 5px
+    );
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+  z-index: 1;
+  animation: stoneDust 0.85s ease-out forwards;
+}
+
+/*
+   Crack effect
+*/
+.favorite-property-removing::after {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  background:
+    linear-gradient(
+      35deg,
+      transparent 47%,
+      rgba(70, 60, 50, 0.28) 48%,
+      rgba(70, 60, 50, 0.28) 49%,
+      transparent 50%
+    ),
+    linear-gradient(
+      115deg,
+      transparent 49%,
+      rgba(70, 60, 50, 0.22) 50%,
+      rgba(70, 60, 50, 0.22) 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      165deg,
+      transparent 48%,
+      rgba(70, 60, 50, 0.2) 49%,
+      rgba(70, 60, 50, 0.2) 50%,
+      transparent 51%
+    );
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  z-index: 10;
+  animation: stoneCracks 0.55s ease-out forwards;
+}
+
+/* ---------------------------------------------------------
+   Stone pieces
+   --------------------------------------------------------- */
+
+.stone-debris {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  overflow: visible;
+}
+
+.stone-piece {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #8b8177;
+  opacity: 0;
+  border-radius: 2px;
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* Piece 1 */
+.stone-piece-1 {
+  top: 28%;
+  left: 18%;
+  width: 12px;
+  height: 8px;
+  transform: rotate(25deg);
+  animation: stonePieceOne 0.8s ease-out forwards;
+}
+
+/* Piece 2 */
+.stone-piece-2 {
+  top: 18%;
+  left: 48%;
+  width: 8px;
+  height: 11px;
+  transform: rotate(-35deg);
+  animation: stonePieceTwo 0.8s ease-out forwards;
+}
+
+/* Piece 3 */
+.stone-piece-3 {
+  top: 35%;
+  right: 18%;
+  width: 11px;
+  height: 10px;
+  transform: rotate(55deg);
+  animation: stonePieceThree 0.8s ease-out forwards;
+}
+
+/* Piece 4 */
+.stone-piece-4 {
+  top: 50%;
+  left: 8%;
+  width: 7px;
+  height: 10px;
+  transform: rotate(-20deg);
+  animation: stonePieceFour 0.8s ease-out forwards;
+}
+
+/* Piece 5 */
+.stone-piece-5 {
+  top: 55%;
+  right: 10%;
+  width: 10px;
+  height: 8px;
+  transform: rotate(40deg);
+  animation: stonePieceFive 0.8s ease-out forwards;
+}
+
+/* Piece 6 */
+.stone-piece-6 {
+  bottom: 20%;
+  left: 30%;
+  width: 8px;
+  height: 7px;
+  transform: rotate(70deg);
+  animation: stonePieceSix 0.8s ease-out forwards;
+}
+
+/* Piece 7 */
+.stone-piece-7 {
+  bottom: 15%;
+  left: 58%;
+  width: 11px;
+  height: 8px;
+  transform: rotate(-45deg);
+  animation: stonePieceSeven 0.8s ease-out forwards;
+}
+
+/* Piece 8 */
+.stone-piece-8 {
+  bottom: 28%;
+  right: 25%;
+  width: 7px;
+  height: 7px;
+  transform: rotate(20deg);
+  animation: stonePieceEight 0.8s ease-out forwards;
+}
+
+/* ---------------------------------------------------------
+   Main card crumble
+   --------------------------------------------------------- */
+
+@keyframes favoriteStoneCollapse {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+
+  12% {
+    opacity: 1;
+    transform: translateX(-2px) rotate(-0.6deg) scale(1.005);
+    filter: blur(0);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateX(3px) rotate(0.8deg) scale(0.995);
+    filter: blur(0);
+  }
+
+  38% {
+    opacity: 0.96;
+    transform: translateY(2px) rotate(-1deg) scale(0.985);
+    filter: blur(0.2px);
+  }
+
+  55% {
+    opacity: 0.82;
+    transform: translateY(8px) rotate(1.5deg) scale(0.96);
+    filter: blur(0.5px);
+  }
+
+  72% {
+    opacity: 0.55;
+    transform: translateY(22px) rotate(-2deg) scale(0.91);
+    filter: blur(1px);
+  }
+
+  88% {
+    opacity: 0.2;
+    transform: translateY(38px) rotate(2.5deg) scale(0.82);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(55px) rotate(4deg) scale(0.72);
+    filter: blur(4px);
+  }
+}
+
+/* ---------------------------------------------------------
+   Crack animation
+   --------------------------------------------------------- */
+
+@keyframes stoneCracks {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  25% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  55% {
+    opacity: 0.55;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+/* ---------------------------------------------------------
+   Dust animation
+   --------------------------------------------------------- */
+
+@keyframes stoneDust {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  30% {
+    opacity: 0.75;
+    transform: translateY(2px) scale(0.8);
+  }
+
+  65% {
+    opacity: 0.45;
+    transform: translateY(8px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(18px) scale(1.25);
+  }
+}
+
+/* ---------------------------------------------------------
+   Individual rock pieces
+   --------------------------------------------------------- */
+
+@keyframes stonePieceOne {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(25deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-42px, 70px) rotate(180deg) scale(0.45);
+  }
+}
+
+@keyframes stonePieceTwo {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-35deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(5px, -55px) rotate(220deg) scale(0.4);
+  }
+}
+
+@keyframes stonePieceThree {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(55deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(48px, 62px) rotate(240deg) scale(0.4);
+  }
+}
+
+@keyframes stonePieceFour {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-20deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-60px, 25px) rotate(170deg) scale(0.35);
+  }
+}
+
+@keyframes stonePieceFive {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(40deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(55px, 35px) rotate(220deg) scale(0.4);
+  }
+}
+
+@keyframes stonePieceSix {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(70deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-28px, 55px) rotate(270deg) scale(0.35);
+  }
+}
+
+@keyframes stonePieceSeven {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-45deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(30px, 62px) rotate(200deg) scale(0.35);
+  }
+}
+
+@keyframes stonePieceEight {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(20deg) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(52px, 48px) rotate(160deg) scale(0.35);
+  }
+}
+
+/* ---------------------------------------------------------
+   Accessibility
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .favorite-property-removing,
+  .favorite-property-removing::before,
+  .favorite-property-removing::after,
+  .stone-piece {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

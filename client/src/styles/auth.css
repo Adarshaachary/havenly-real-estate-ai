@@ -1,0 +1,236 @@
+/* ==============================
+   HAVENLY AUTH PAGES
+   ============================== */
+
+.auth-page {
+  align-items: center;
+  background: var(--paper);
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 82px);
+  padding: 64px 20px;
+}
+
+.auth-panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  max-width: 460px;
+  padding: 48px;
+  width: 100%;
+}
+
+.auth-brand {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 9px;
+  justify-content: center;
+  letter-spacing: -0.6px;
+  margin-bottom: 42px;
+}
+
+.auth-mark {
+  align-items: center;
+  background: var(--moss);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  font-family: var(--serif);
+  font-size: 18px;
+  height: 29px;
+  justify-content: center;
+  width: 29px;
+}
+
+.auth-eyebrow {
+  color: var(--olive);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  margin: 0 0 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.auth-heading {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.auth-intro {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 auto 30px;
+  max-width: 290px;
+  text-align: center;
+}
+
+.auth-field {
+  margin-bottom: 17px;
+}
+
+.auth-label {
+  color: var(--ink);
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-input-wrap {
+  align-items: center;
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  padding: 12px 13px;
+  transition: border-color 0.2s ease;
+}
+
+.auth-input-wrap:focus-within {
+  border-color: var(--moss);
+}
+
+.auth-input {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-size: 13px;
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.auth-input::placeholder {
+  color: var(--muted);
+}
+
+.auth-button {
+  background: var(--moss);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 14px;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.auth-button:hover {
+  opacity: 0.9;
+}
+
+.auth-switch {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 26px 0 0;
+  text-align: center;
+}
+
+.auth-link {
+  color: var(--moss);
+  font-weight: 700;
+}
+
+/* ==============================
+   TABLET
+   ============================== */
+
+@media (max-width: 700px) {
+  .auth-page {
+    min-height: calc(100vh - 72px);
+    padding: 40px 18px;
+  }
+
+  .auth-panel {
+    padding: 38px 30px;
+  }
+
+  .auth-brand {
+    margin-bottom: 34px;
+  }
+
+  .auth-heading {
+    font-size: 36px;
+  }
+}
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 480px) {
+  .auth-page {
+    align-items: flex-start;
+    min-height: calc(100vh - 65px);
+    padding: 28px 14px 40px;
+  }
+
+  .auth-panel {
+    padding: 30px 20px;
+  }
+
+  .auth-brand {
+    font-size: 19px;
+    margin-bottom: 30px;
+  }
+
+  .auth-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+
+  .auth-heading {
+    font-size: 32px;
+    letter-spacing: -0.7px;
+  }
+
+  .auth-intro {
+    font-size: 12px;
+    margin-bottom: 26px;
+  }
+
+  .auth-input-wrap {
+    padding: 11px 12px;
+  }
+
+  .auth-input {
+    font-size: 13px;
+  }
+
+  .auth-button {
+    padding: 13px;
+  }
+
+  .auth-switch {
+    line-height: 1.6;
+    margin-top: 22px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   ============================== */
+
+@media (max-width: 360px) {
+  .auth-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .auth-panel {
+    padding: 26px 16px;
+  }
+
+  .auth-heading {
+    font-size: 29px;
+  }
+}
