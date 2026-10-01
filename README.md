@@ -188,7 +188,7 @@ The frontend is designed to work across:
 
 ## ❤️ Favorites
 
-![Havenly Favorites](./screenshots/favorites.png)
+![Havenly Favorites](./screenshots/favorities.png)
 
 ---
 
