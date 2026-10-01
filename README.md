@@ -35,7 +35,7 @@ The application combines a React frontend, Node.js/Express backend, MongoDB Atla
       <p align="center"><strong>AI Chatbot</strong></p>
     </td>
     <td width="50%">
-      <img src="./screenshots/favorites.png" alt="Havenly Favorites">
+      <img src="./screenshots/favorities.png" alt="Havenly Favorites">
       <p align="center"><strong>Favorites</strong></p>
     </td>
   </tr>
