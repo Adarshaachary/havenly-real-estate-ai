@@ -1,53 +1,389 @@
-## Project Overview
+# 🏡 Havenly – Real Estate Website with AI Chatbot
 
-**REALESTATE_MINIPROJECT** is a JavaScript-based real estate web application that demonstrates how property listing platforms work.  
-The app is designed to let users browse properties, view listing details, and explore real estate data in a clean and user-friendly interface.
+Havenly is a modern real-estate web application that helps users discover, search, save, and book properties through a simple and interactive interface.
 
-This mini project was built to practice real-world web development concepts such as UI structuring, dynamic data rendering, and responsive design for better user experience.
+The project also includes an **AI-powered real-estate chatbot** that understands natural-language property requirements and helps users find suitable properties.
 
-## Tech Stack / Tools Used
+---
+
+## ✨ Features
+
+### 🏠 Property Discovery
+
+* Browse available properties.
+* View property details.
+* Search and filter properties.
+* View property location on a map.
+* See property images, price, facilities, and nearby places.
+
+### 🤖 AI Real Estate Assistant
+
+* Natural-language property search.
+* Understands requirements such as:
+
+  * Location
+  * Budget
+  * Property type
+  * Bedrooms
+  * Bathrooms
+  * Parking
+  * Amenities
+* Returns matching properties from the database.
+* Displays property results directly inside the chatbot.
+
+### ❤️ Favorites
+
+* Save properties to favorites.
+* View saved properties.
+* Remove properties from favorites.
+
+### 📅 Property Visits
+
+* Book a visit for a property.
+* View booked visits.
+* Cancel a booking.
+
+### 🏡 List a Property
+
+* Property owners can submit property information.
+* Add property details such as:
+
+  * Property name
+  * Description
+  * City
+  * Address
+  * Price
+  * Bedrooms
+  * Bathrooms
+  * Parking
+  * Property image
+
+### 👤 User System
+
+* User registration.
+* User login.
+* User-specific favorites and bookings.
+
+### 🗺️ Property Maps
+
+* Property coordinates are stored with property data.
+* Map locations are displayed using OpenStreetMap.
+
+### 📱 Responsive Design
+
+* Desktop-friendly interface.
+* Mobile-responsive layout.
+* Clean and modern real-estate design.
+
+---
+
+## 🤖 AI Chatbot
+
+The Havenly chatbot is designed specifically for real-estate discovery.
+
+Instead of using only traditional filters, users can type requests naturally.
+
+### Example
+
+```text
+Show me a 3 BHK house in Bengaluru under ₹2 crore
+```
+
+The chatbot processes the request and searches the property database for matching properties.
+
+Another example:
+
+```text
+I want a property near the beach in Mangaluru
+```
+
+The system can identify the location and property requirements and return matching properties.
+
+---
+
+## 🛠️ Technologies Used
 
 ### Frontend
-- **HTML5** – page structure and content
-- **CSS3** – styling, layout, and responsive design
-- **JavaScript (ES6+)** – core logic, interactivity, and dynamic rendering
+
+* React.js
+* Vite
+* JavaScript
+* CSS
+* React Router
+* Lucide React
+
+### Backend
+
+* Node.js
+* Express.js
+* JavaScript
+* Prisma ORM
+
+### Database
+
+* MongoDB
+* MongoDB Atlas
+
+### AI
+
+* Google Gemini API
+
+### Maps
+
+* OpenStreetMap
 
 ### Development Tools
-- **Git & GitHub** – version control and project hosting
-- **VS Code** *(or your preferred editor)* – development environment
-- **Browser Developer Tools** – debugging and testing UI behavior
 
-## Database / Data Handling
+* VS Code
+* Git
+* GitHub
+* npm
 
-> Update this section based on what you actually used:
+---
 
-- If you used static data:  
-  **No external database** is connected currently. Property data is managed using local JavaScript objects/arrays (or JSON files).
+## 🏗️ Project Architecture
 
-- If you used browser storage:  
-  **LocalStorage** is used to store temporary user/listing-related data on the client side.
+```text
+                    ┌──────────────────┐
+                    │     User         │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ React + Vite     │
+                    │    Frontend      │
+                    └────────┬─────────┘
+                             │
+                  REST API Requests
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Node + Express   │
+                    │     Backend      │
+                    └────────┬─────────┘
+                             │
+               ┌─────────────┴─────────────┐
+               │                           │
+               ▼                           ▼
+       ┌────────────────┐        ┌────────────────┐
+       │ MongoDB Atlas   │        │  Gemini API    │
+       │   Database      │        │ AI Chatbot     │
+       └────────────────┘        └────────────────┘
+```
 
-- If you used a backend database (example):  
-  **MongoDB / MySQL / Firebase** is used to store property listings and related records.
+---
 
-## Key Features
+## 📂 Project Structure
 
-- Browse real estate property listings
-- View key property details in an organized format
-- Clean and responsive user interface
-- Structured project flow for easy understanding and future enhancements
+```text
+havenly-real-estate-ai/
+│
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── config/
+│   ├── controllers/
+│   ├── data/
+│   ├── prisma/
+│   ├── routes/
+│   ├── utils/
+│   ├── index.js
+│   └── package.json
+│
+├── .gitignore
+└── README.md
+```
 
-## Purpose of the Project
+---
 
-This project was created as a learning-focused mini project to understand how domain-specific web applications are built.  
-It demonstrates practical frontend skills and provides a base that can be extended with authentication, advanced filtering, maps integration, and backend APIs.
+## 🔄 How the Application Works
 
-<img width="1909" height="1017" alt="Screenshot 2026-07-16 172620" src="https://github.com/user-attachments/assets/1ea4c21a-98fc-48b5-9e72-e6bc393e621d" />
-<img width="1912" height="966" alt="Screenshot 2026-07-16 172648" src="https://github.com/user-attachments/assets/13c7017d-09fb-433c-aa35-ca5ab7b1696e" />
-<img width="1919" height="1019" alt="Screenshot 2026-07-16 172720" src="https://github.com/user-attachments/assets/2cc736ed-c873-4f3c-b279-519ea4436438" />
-<img width="1918" height="1009" alt="Screenshot 2026-07-16 172837" src="https://github.com/user-attachments/assets/e7f795ca-4799-4f75-8ffb-7a29ca94fcf1" />
+### Property Search
 
-<img width="1919" height="1013" alt="Screenshot 2026-07-16 172757" src="https://github.com/user-attachments/assets/d4965575-ce6f-4e59-af71-bf71e4025ac7" />
+```text
+User
+  ↓
+Search / Filter
+  ↓
+Frontend
+  ↓
+Express API
+  ↓
+Prisma
+  ↓
+MongoDB Atlas
+  ↓
+Property Results
+  ↓
+Frontend
+```
 
+### AI Property Search
 
+```text
+User's Natural Language Request
+              ↓
+        AI Chatbot
+              ↓
+      Gemini API Processing
+              ↓
+     Property Requirements
+              ↓
+       Filter Engine
+              ↓
+        MongoDB Atlas
+              ↓
+      Matching Properties
+              ↓
+        Chatbot Results
+```
 
+---
+
+## 🚀 Running the Project Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Adarshaachary/havenly-real-estate-ai.git
+```
+
+```bash
+cd havenly-real-estate-ai
+```
+
+---
+
+### 2. Install frontend dependencies
+
+```bash
+cd client
+npm install
+```
+
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+---
+
+### 3. Install backend dependencies
+
+Open another terminal:
+
+```bash
+cd server
+npm install
+```
+
+Start the backend:
+
+```bash
+npm run dev
+```
+
+The frontend and backend will run on their respective local development ports.
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file inside the `server` directory.
+
+Example:
+
+```env
+DATABASE_URL="your-mongodb-connection-string"
+GEMINI_API_KEY="your-gemini-api-key"
+```
+
+Never upload your actual `.env` file or API keys to GitHub.
+
+The project uses `.gitignore` to prevent sensitive environment files from being committed.
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of the application here.
+
+Example:
+
+```text
+Home Page
+Property Listing
+Property Details
+AI Chatbot
+Favorites
+Bookings
+```
+
+---
+
+## 🌐 Live Demo
+
+Live demo:
+
+**Coming soon**
+
+Once the project is deployed, add the Vercel URL here.
+
+Example:
+
+```text
+https://your-havenly-demo.vercel.app
+```
+
+---
+
+## 📌 Future Improvements
+
+* User authentication improvements
+* Secure owner-based property management
+* Property image upload
+* Advanced property filtering
+* Improved AI recommendations
+* Online property booking
+* Payment integration
+* Email notifications
+* Property-owner dashboard
+* Production deployment
+* Better location and distance-based search
+
+---
+
+## 🎯 Project Objective
+
+The main objective of Havenly is to combine a traditional real-estate property platform with an AI-powered conversational search experience.
+
+Instead of forcing users to search only through multiple filters, Havenly allows users to describe what they are looking for naturally and receive relevant property suggestions.
+
+---
+
+## 👨‍💻 Developer
+
+**Adarsha Achary**
+
+Information Science & Engineering Student
+
+GitHub:
+https://github.com/Adarshaachary
+
+---
+
+## 📄 License
+
+This project was developed for educational and portfolio purposes.
