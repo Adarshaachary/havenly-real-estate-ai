@@ -1,119 +1,1174 @@
 [
   {
     "title": "Skyline Serenity Villa",
-    "description": "An ultra-modern villa in JP Nagar featuring a rooftop pool, skylit atrium, and Italian marble interiors designed for elite comfort.",
+    "description": "An ultra-modern luxury villa in JP Nagar featuring a rooftop pool, skylit atrium, Italian marble interiors, landscaped gardens and a private entertainment area.",
+    "propertyType": "Villa",
     "price": 142000000,
     "address": "JP Nagar",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "facilities": { "bathrooms": 5, "parking": 3, "bedrooms": 6 },
+    "images": [
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    "facilities": {
+      "bathrooms": 5,
+      "parking": 3,
+      "bedrooms": 6,
+      "balconies": 3,
+      "floors": 3
+    },
+    "area": 4800,
+    "plotArea": 5200,
+    "yearBuilt": 2023,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Rooftop Swimming Pool",
+      "Private Garden",
+      "Smart Home",
+      "Home Theatre",
+      "Gym",
+      "Security",
+      "Power Backup",
+      "CCTV",
+      "Solar Panels",
+      "High Speed Internet"
+    ],
+    "latitude": 12.9081,
+    "longitude": 77.5857,
+    "nearbyPlaces": {
+      "metro": "JP Nagar Metro Station",
+      "school": "Brigade School",
+      "hospital": "Apollo Hospitals",
+      "shopping": "Bangalore Central",
+      "cityCentre": "11 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "nikhil.reddy@gmail.com",
     "createdAt": "2025-02-15T10:38:48.762Z",
     "updatedAt": "2025-02-15T10:38:48.762Z"
   },
   {
     "title": "Indiranagar Platinum Residency",
-    "description": "A stunning architectural gem in Indiranagar with high ceilings, panoramic glass walls, and a private infinity-edge pool.",
+    "description": "A stunning architectural residence in Indiranagar with high ceilings, panoramic glass walls, a private infinity-edge pool and sophisticated contemporary interiors.",
+    "propertyType": "Luxury Villa",
     "price": 158000000,
     "address": "Indiranagar",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://3.bp.blogspot.com/-84l-BoUL090/VTDHcQzSTNI/AAAAAAAAuHI/Khftta_CF5E/s1920/wow-home-design.jpg",
-    "facilities": { "bathrooms": 6, "parking": 3, "bedrooms": 5 },
+    "images": [
+      "https://3.bp.blogspot.com/-84l-BoUL090/VTDHcQzSTNI/AAAAAAAAuHI/Khftta_CF5E/s1920/wow-home-design.jpg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 6,
+      "parking": 3,
+      "bedrooms": 5,
+      "balconies": 2,
+      "floors": 3
+    },
+    "area": 4300,
+    "plotArea": 4700,
+    "yearBuilt": 2022,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Infinity Pool",
+      "Private Garden",
+      "Smart Lighting",
+      "Home Office",
+      "Modular Kitchen",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Elevator",
+      "Internet"
+    ],
+    "latitude": 12.9784,
+    "longitude": 77.6408,
+    "nearbyPlaces": {
+      "metro": "Indiranagar Metro Station",
+      "school": "New Horizon Public School",
+      "hospital": "Manipal Hospital",
+      "shopping": "100 Feet Road",
+      "cityCentre": "6 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "shruti.kapoor@gmail.com",
     "createdAt": "2025-05-10T15:12:19.231Z",
     "updatedAt": "2025-05-10T15:12:19.231Z"
   },
   {
     "title": "Whitefield Royal Estate",
-    "description": "A majestic 7BHK estate with sprawling lawns, smart home systems, and an exclusive art-inspired interior in Whitefield.",
+    "description": "A majestic 7BHK estate with sprawling lawns, smart home systems, premium interiors, multiple living areas and a private entertainment zone in Whitefield.",
+    "propertyType": "Estate",
     "price": 169000000,
     "address": "Whitefield",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "facilities": { "bathrooms": 7, "parking": 4, "bedrooms": 7 },
+    "images": [
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 7,
+      "parking": 4,
+      "bedrooms": 7,
+      "balconies": 4,
+      "floors": 3
+    },
+    "area": 6100,
+    "plotArea": 7600,
+    "yearBuilt": 2021,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Large Garden",
+      "Smart Home",
+      "Private Theatre",
+      "Swimming Pool",
+      "Gym",
+      "Clubhouse Access",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "EV Charging"
+    ],
+    "latitude": 12.9698,
+    "longitude": 77.7499,
+    "nearbyPlaces": {
+      "metro": "Whitefield Metro Station",
+      "school": "The Deens Academy",
+      "hospital": "Manipal Hospital Whitefield",
+      "shopping": "Phoenix Marketcity",
+      "cityCentre": "17 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "karan.mehra@gmail.com",
     "createdAt": "2025-08-22T09:26:20.051Z",
     "updatedAt": "2025-08-22T09:26:20.051Z"
   },
   {
     "title": "The Green Horizon Villa",
-    "description": "An eco-luxury villa surrounded by lush greens in Sarjapur Road, designed with solar tech and an open-air jacuzzi garden.",
+    "description": "An eco-luxury villa surrounded by lush greenery on Sarjapur Road, designed with solar technology, open spaces, a private garden and an outdoor jacuzzi.",
+    "propertyType": "Eco Villa",
     "price": 132000000,
     "address": "Sarjapur Road",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://e0.pxfuel.com/wallpapers/12/377/desktop-wallpaper-beautiful-houses-beautiful-mansion.jpg",
-    "facilities": { "bathrooms": 5, "parking": 2, "bedrooms": 5 },
+    "images": [
+      "https://e0.pxfuel.com/wallpapers/12/377/desktop-wallpaper-beautiful-houses-beautiful-mansion.jpg",
+      "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 5,
+      "parking": 2,
+      "bedrooms": 5,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 3900,
+    "plotArea": 5100,
+    "yearBuilt": 2024,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Solar Panels",
+      "Outdoor Jacuzzi",
+      "Private Garden",
+      "Rainwater Harvesting",
+      "Smart Home",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "EV Charging",
+      "Internet"
+    ],
+    "latitude": 12.9121,
+    "longitude": 77.7397,
+    "nearbyPlaces": {
+      "metro": "Upcoming Metro Corridor",
+      "school": "Greenwood High",
+      "hospital": "Narayana Health",
+      "shopping": "Market Square",
+      "cityCentre": "16 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "aarti.nair@gmail.com",
     "createdAt": "2025-07-18T13:42:37.946Z",
     "updatedAt": "2025-07-18T13:42:37.946Z"
   },
   {
     "title": "The Oberon Mansion",
-    "description": "A bold and timeless villa in Koramangala with grand marble halls, a theatre room, and European-style landscaped gardens.",
+    "description": "A bold and timeless villa in Koramangala with grand marble halls, a private theatre room, European-style landscaped gardens and expansive entertaining spaces.",
+    "propertyType": "Mansion",
     "price": 155000000,
     "address": "Koramangala",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg",
-    "facilities": { "bathrooms": 8, "parking": 4, "bedrooms": 8 },
+    "images": [
+      "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg",
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 8,
+      "parking": 4,
+      "bedrooms": 8,
+      "balconies": 3,
+      "floors": 3
+    },
+    "area": 6800,
+    "plotArea": 8000,
+    "yearBuilt": 2020,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Private Theatre",
+      "Landscaped Garden",
+      "Swimming Pool",
+      "Home Library",
+      "Gym",
+      "Smart Home",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Elevator"
+    ],
+    "latitude": 12.9352,
+    "longitude": 77.6245,
+    "nearbyPlaces": {
+      "metro": "Rashtreeya Vidyalaya Road Metro",
+      "school": "Bethany High",
+      "hospital": "St. John's Medical College",
+      "shopping": "Forum Mall",
+      "cityCentre": "7 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "vishal.patel@gmail.com",
     "createdAt": "2025-09-09T10:39:35.044Z",
     "updatedAt": "2025-09-09T10:39:35.044Z"
   },
   {
     "title": "Prestige Palm Manor",
-    "description": "A grand 5BHK mansion located in Yelahanka, offering premium finishes, private gardens, and panoramic balcony views.",
+    "description": "A grand 5BHK mansion in Yelahanka offering premium finishes, private gardens, spacious balconies, a modern kitchen and peaceful residential surroundings.",
+    "propertyType": "Independent House",
     "price": 149000000,
     "address": "Yelahanka",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://www.hollywoodreporter.com/wp-content/uploads/2023/03/image_h_01-H-2023.jpg",
-    "facilities": { "bathrooms": 6, "parking": 3, "bedrooms": 5 },
+    "images": [
+      "https://www.hollywoodreporter.com/wp-content/uploads/2023/03/image_h_01-H-2023.jpg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 6,
+      "parking": 3,
+      "bedrooms": 5,
+      "balconies": 3,
+      "floors": 2
+    },
+    "area": 4500,
+    "plotArea": 5600,
+    "yearBuilt": 2022,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Private Garden",
+      "Large Balcony",
+      "Modular Kitchen",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Rainwater Harvesting",
+      "Internet",
+      "Covered Parking"
+    ],
+    "latitude": 13.1007,
+    "longitude": 77.5963,
+    "nearbyPlaces": {
+      "metro": "Yelahanka Metro Corridor",
+      "school": "National Public School",
+      "hospital": "Aster CMI Hospital",
+      "shopping": "RMZ Galleria",
+      "cityCentre": "18 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "megha.r@gmail.com",
     "createdAt": "2026-01-21T11:41:54.156Z",
     "updatedAt": "2026-01-21T11:41:54.156Z"
   },
   {
     "title": "Palmcrest Elite Villa",
-    "description": "A contemporary smart home in HSR Layout featuring rooftop gardens, skylights, and an automated lighting ecosystem.",
+    "description": "A contemporary smart home in HSR Layout featuring rooftop gardens, skylights, automated lighting, spacious bedrooms and a private terrace.",
+    "propertyType": "Smart Villa",
     "price": 168000000,
     "address": "HSR Layout",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://st.hzcdn.com/simgs/pictures/exteriors/builders-in-kochi-creo-homes-pvt-ltd-img~a751d25e0d2ef808_4-0254-1-cb5c87b.jpg",
-    "facilities": { "bathrooms": 5, "parking": 2, "bedrooms": 5 },
+    "images": [
+      "https://st.hzcdn.com/simgs/pictures/exteriors/builders-in-kochi-creo-homes-pvt-ltd-img~a751d25e0d2ef808_4-0254-1-cb5c87b.jpg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 5,
+      "parking": 2,
+      "bedrooms": 5,
+      "balconies": 2,
+      "floors": 3
+    },
+    "area": 4100,
+    "plotArea": 4800,
+    "yearBuilt": 2023,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Rooftop Garden",
+      "Smart Home",
+      "Automated Lighting",
+      "Home Office",
+      "Terrace",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Solar Panels",
+      "Internet"
+    ],
+    "latitude": 12.9082,
+    "longitude": 77.6476,
+    "nearbyPlaces": {
+      "metro": "HSR Layout Metro Corridor",
+      "school": "National Public School",
+      "hospital": "Narayana Multispeciality",
+      "shopping": "Market Square",
+      "cityCentre": "10 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "ravi.kumar@gmail.com",
     "createdAt": "2025-11-14T10:42:58.826Z",
     "updatedAt": "2025-11-14T10:42:58.826Z"
   },
   {
     "title": "Summerhill Estate",
-    "description": "Located in Jayanagar, this luxurious home offers a blend of classic architecture with cutting-edge smart home features.",
+    "description": "Located in Jayanagar, this luxurious home blends classic architecture with modern smart-home features, landscaped outdoor spaces and spacious family rooms.",
+    "propertyType": "Independent House",
     "price": 123000000,
     "address": "Jayanagar",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://i.pinimg.com/originals/89/56/5c/89565c305737e1da2a1a5b62600fbcd4.jpg",
-    "facilities": { "bathrooms": 4, "parking": 2, "bedrooms": 4 },
+    "images": [
+      "https://i.pinimg.com/originals/89/56/5c/89565c305737e1da2a1a5b62600fbcd4.jpg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 3200,
+    "plotArea": 4200,
+    "yearBuilt": 2019,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Smart Home",
+      "Private Garden",
+      "Modular Kitchen",
+      "Home Office",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Rainwater Harvesting",
+      "Internet"
+    ],
+    "latitude": 12.925,
+    "longitude": 77.5938,
+    "nearbyPlaces": {
+      "metro": "Jayanagar Metro Station",
+      "school": "National Public School",
+      "hospital": "Sagar Hospitals",
+      "shopping": "Jayanagar 4th Block",
+      "cityCentre": "7 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "simran.arora@gmail.com",
     "createdAt": "2025-06-11T10:43:18.186Z",
     "updatedAt": "2025-06-11T10:43:18.186Z"
   },
   {
     "title": "Crimson Peak Chalet",
-    "description": "Perched in the peaceful enclave of Electronic City, this 4BHK retreat exudes minimalistic design and natural light.",
+    "description": "A peaceful 4BHK retreat in Electronic City featuring minimalist interiors, natural light, a private terrace and a calm residential setting.",
+    "propertyType": "Chalet",
     "price": 119000000,
     "address": "Electronic City",
     "city": "Bengaluru",
     "country": "India",
     "image": "https://cutewallpaper.org/24/house-images/1819611997.jpg",
-    "facilities": { "bathrooms": 4, "parking": 2, "bedrooms": 4 },
+    "images": [
+      "https://cutewallpaper.org/24/house-images/1819611997.jpg",
+      "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 2900,
+    "plotArea": 3600,
+    "yearBuilt": 2021,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Private Terrace",
+      "Garden",
+      "Modular Kitchen",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet",
+      "Covered Parking"
+    ],
+    "latitude": 12.8452,
+    "longitude": 77.6602,
+    "nearbyPlaces": {
+      "metro": "Electronic City Metro Corridor",
+      "school": "Treamis World School",
+      "hospital": "Narayana Health City",
+      "shopping": "Neo Mall",
+      "cityCentre": "19 km"
+    },
+    "availability": "Available",
+    "status": "Active",
     "userEmail": "arjun.desai@gmail.com",
     "createdAt": "2026-03-02T10:00:00.000Z",
     "updatedAt": "2026-03-02T10:00:00.000Z"
+  },
+
+  {
+    "title": "Mysore Palace View Residence",
+    "description": "A spacious family residence in Mysuru with elegant interiors, generous living areas, private balconies and convenient access to central Mysuru.",
+    "propertyType": "Independent House",
+    "price": 72000000,
+    "address": "Vijayanagar",
+    "city": "Mysuru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 3,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 2800,
+    "plotArea": 3600,
+    "yearBuilt": 2022,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Private Garden",
+      "Balcony",
+      "Modular Kitchen",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 12.3382,
+    "longitude": 76.615,
+    "nearbyPlaces": {
+      "school": "Delhi Public School Mysuru",
+      "hospital": "Columbia Asia Hospital",
+      "shopping": "Mall of Mysore",
+      "landmark": "Mysore Palace",
+      "cityCentre": "6 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "nikhil.reddy@gmail.com",
+    "createdAt": "2026-02-12T09:20:00.000Z",
+    "updatedAt": "2026-02-12T09:20:00.000Z"
+  },
+  {
+    "title": "Chamundi Hills Garden Villa",
+    "description": "A peaceful villa overlooking the green surroundings of Mysuru, designed for families looking for large outdoor spaces and a relaxed lifestyle.",
+    "propertyType": "Villa",
+    "price": 98000000,
+    "address": "Vijayanagar 3rd Stage",
+    "city": "Mysuru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 3,
+      "bedrooms": 5,
+      "balconies": 3,
+      "floors": 2
+    },
+    "area": 3600,
+    "plotArea": 5000,
+    "yearBuilt": 2023,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Private Garden",
+      "Terrace",
+      "Home Office",
+      "Smart Lighting",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Solar Panels",
+      "Internet"
+    ],
+    "latitude": 12.3197,
+    "longitude": 76.6119,
+    "nearbyPlaces": {
+      "school": "JSS Public School",
+      "hospital": "Narayana Multispeciality Hospital",
+      "shopping": "Mall of Mysore",
+      "landmark": "Chamundi Hills",
+      "cityCentre": "8 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "shruti.kapoor@gmail.com",
+    "createdAt": "2026-03-18T12:10:00.000Z",
+    "updatedAt": "2026-03-18T12:10:00.000Z"
+  },
+  {
+    "title": "Royal Orchid 3BHK Apartment",
+    "description": "A modern 3BHK apartment in Mysuru with practical layouts, excellent natural light, covered parking and community amenities.",
+    "propertyType": "Apartment",
+    "price": 58000000,
+    "address": "Hebbal",
+    "city": "Mysuru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 2,
+      "parking": 1,
+      "bedrooms": 3,
+      "balconies": 2,
+      "floors": 1
+    },
+    "area": 1750,
+    "plotArea": 1750,
+    "yearBuilt": 2024,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Clubhouse",
+      "Swimming Pool",
+      "Gym",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Lift",
+      "Internet"
+    ],
+    "latitude": 12.3619,
+    "longitude": 76.6251,
+    "nearbyPlaces": {
+      "school": "Podar International School",
+      "hospital": "Columbia Asia Hospital",
+      "shopping": "Mall of Mysore",
+      "transport": "Mysuru Junction",
+      "cityCentre": "7 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "karan.mehra@gmail.com",
+    "createdAt": "2026-04-05T08:45:00.000Z",
+    "updatedAt": "2026-04-05T08:45:00.000Z"
+  },
+
+  {
+    "title": "Arabian Sea Breeze Villa",
+    "description": "A contemporary coastal villa in Mangaluru with spacious rooms, natural ventilation, private outdoor areas and easy access to the city's coastal lifestyle.",
+    "propertyType": "Coastal Villa",
+    "price": 89000000,
+    "address": "Bejai",
+    "city": "Mangaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 3100,
+    "plotArea": 4200,
+    "yearBuilt": 2023,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Private Garden",
+      "Large Balcony",
+      "Sea Breeze",
+      "Solar Panels",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 12.8917,
+    "longitude": 74.842,
+    "nearbyPlaces": {
+      "school": "St Aloysius Gonzaga School",
+      "hospital": "KMC Hospital",
+      "shopping": "City Centre Mall",
+      "beach": "Tannirbhavi Beach",
+      "cityCentre": "4 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "aarti.nair@gmail.com",
+    "createdAt": "2026-02-25T10:30:00.000Z",
+    "updatedAt": "2026-02-25T10:30:00.000Z"
+  },
+  {
+    "title": "Kadri Heights Residence",
+    "description": "A refined 3BHK apartment in Mangaluru offering modern interiors, open views, covered parking and convenient access to schools, hospitals and shopping areas.",
+    "propertyType": "Apartment",
+    "price": 49000000,
+    "address": "Kadri",
+    "city": "Mangaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 2,
+      "parking": 1,
+      "bedrooms": 3,
+      "balconies": 2,
+      "floors": 1
+    },
+    "area": 1650,
+    "plotArea": 1650,
+    "yearBuilt": 2022,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Gym",
+      "Clubhouse",
+      "Lift",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Covered Parking",
+      "Internet"
+    ],
+    "latitude": 12.8869,
+    "longitude": 74.851,
+    "nearbyPlaces": {
+      "school": "St Aloysius College",
+      "hospital": "KMC Hospital",
+      "shopping": "Bharath Mall",
+      "transport": "Mangaluru Central",
+      "cityCentre": "3 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "simran.arora@gmail.com",
+    "createdAt": "2026-03-11T09:15:00.000Z",
+    "updatedAt": "2026-03-11T09:15:00.000Z"
+  },
+  {
+    "title": "Panambur Coastal Retreat",
+    "description": "A spacious family home near the Mangaluru coast with a bright open layout, garden spaces and easy access to beaches and major city roads.",
+    "propertyType": "Independent House",
+    "price": 68000000,
+    "address": "Panambur",
+    "city": "Mangaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 3,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 2700,
+    "plotArea": 3900,
+    "yearBuilt": 2020,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Garden",
+      "Terrace",
+      "Rainwater Harvesting",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 12.9462,
+    "longitude": 74.7957,
+    "nearbyPlaces": {
+      "school": "Kendriya Vidyalaya",
+      "hospital": "AJ Hospital",
+      "shopping": "City Centre Mall",
+      "beach": "Panambur Beach",
+      "cityCentre": "10 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "vishal.patel@gmail.com",
+    "createdAt": "2026-04-14T11:40:00.000Z",
+    "updatedAt": "2026-04-14T11:40:00.000Z"
+  },
+
+  {
+    "title": "Malpe Sea View Villa",
+    "description": "A relaxed coastal villa near Udupi designed for families seeking generous outdoor space, sea-facing surroundings and a peaceful residential setting.",
+    "propertyType": "Beach Villa",
+    "price": 76000000,
+    "address": "Malpe",
+    "city": "Udupi",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 3,
+      "parking": 2,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 2900,
+    "plotArea": 4500,
+    "yearBuilt": 2023,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Sea View",
+      "Private Garden",
+      "Large Balcony",
+      "Outdoor Seating",
+      "Solar Panels",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 13.3499,
+    "longitude": 74.7041,
+    "nearbyPlaces": {
+      "school": "Manipal Academy",
+      "hospital": "KMC Hospital Manipal",
+      "shopping": "City Centre Udupi",
+      "beach": "Malpe Beach",
+      "cityCentre": "8 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "megha.r@gmail.com",
+    "createdAt": "2026-02-28T10:00:00.000Z",
+    "updatedAt": "2026-02-28T10:00:00.000Z"
+  },
+  {
+    "title": "Manipal Garden Apartments",
+    "description": "A modern 2BHK apartment near Manipal with practical interiors, excellent connectivity, community amenities and a quiet residential atmosphere.",
+    "propertyType": "Apartment",
+    "price": 36000000,
+    "address": "Manipal",
+    "city": "Udupi",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 2,
+      "parking": 1,
+      "bedrooms": 2,
+      "balconies": 1,
+      "floors": 1
+    },
+    "area": 1250,
+    "plotArea": 1250,
+    "yearBuilt": 2024,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Gym",
+      "Clubhouse",
+      "Lift",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet",
+      "Covered Parking"
+    ],
+    "latitude": 13.3525,
+    "longitude": 74.7927,
+    "nearbyPlaces": {
+      "school": "Manipal International School",
+      "hospital": "KMC Hospital",
+      "shopping": "Manipal Centre",
+      "university": "Manipal Academy of Higher Education",
+      "cityCentre": "6 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "arjun.desai@gmail.com",
+    "createdAt": "2026-03-25T07:30:00.000Z",
+    "updatedAt": "2026-03-25T07:30:00.000Z"
+  },
+
+  {
+    "title": "Coffee Valley Estate",
+    "description": "A scenic coffee estate property in Chikkamagaluru surrounded by greenery, plantation land and peaceful hills, ideal for a private retreat or investment.",
+    "propertyType": "Coffee Estate",
+    "price": 110000000,
+    "address": "Aldur",
+    "city": "Chikkamagaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 3,
+      "parking": 4,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 3200,
+    "plotArea": 43560,
+    "yearBuilt": 2021,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Coffee Plantation",
+      "Private Garden",
+      "Mountain View",
+      "Outdoor Seating",
+      "Fireplace",
+      "Solar Panels",
+      "Rainwater Harvesting",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 13.258,
+    "longitude": 75.756,
+    "nearbyPlaces": {
+      "school": "Chikkamagaluru Town",
+      "hospital": "District Hospital",
+      "shopping": "Chikkamagaluru Market",
+      "landmark": "Coffee Plantations",
+      "cityCentre": "18 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "nikhil.reddy@gmail.com",
+    "createdAt": "2026-01-30T12:00:00.000Z",
+    "updatedAt": "2026-01-30T12:00:00.000Z"
+  },
+  {
+    "title": "Misty Hills Retreat",
+    "description": "A modern hillside retreat surrounded by coffee plantations and natural greenery, with large windows, open terraces and peaceful mountain views.",
+    "propertyType": "Hill Villa",
+    "price": 82000000,
+    "address": "Mudigere",
+    "city": "Chikkamagaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 3,
+      "parking": 2,
+      "bedrooms": 3,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 2400,
+    "plotArea": 21780,
+    "yearBuilt": 2022,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Mountain View",
+      "Coffee Plantation",
+      "Fireplace",
+      "Outdoor Deck",
+      "Garden",
+      "Solar Panels",
+      "Rainwater Harvesting",
+      "Internet"
+    ],
+    "latitude": 13.1335,
+    "longitude": 75.6386,
+    "nearbyPlaces": {
+      "school": "Mudigere Town",
+      "hospital": "Mudigere Hospital",
+      "shopping": "Mudigere Market",
+      "landmark": "Western Ghats",
+      "cityCentre": "9 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "shruti.kapoor@gmail.com",
+    "createdAt": "2026-02-20T09:00:00.000Z",
+    "updatedAt": "2026-02-20T09:00:00.000Z"
+  },
+  {
+    "title": "Coffee Grove Family Home",
+    "description": "A comfortable 3BHK home near Chikkamagaluru town surrounded by greenery, with a spacious garden and easy access to plantation areas.",
+    "propertyType": "Farm House",
+    "price": 64000000,
+    "address": "Hirekolale",
+    "city": "Chikkamagaluru",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 2,
+      "parking": 2,
+      "bedrooms": 3,
+      "balconies": 1,
+      "floors": 1
+    },
+    "area": 2100,
+    "plotArea": 10890,
+    "yearBuilt": 2020,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Garden",
+      "Coffee Plantation",
+      "Outdoor Seating",
+      "Rainwater Harvesting",
+      "Solar Panels",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 13.3161,
+    "longitude": 75.775,
+    "nearbyPlaces": {
+      "school": "Chikkamagaluru Town",
+      "hospital": "District Hospital",
+      "shopping": "Chikkamagaluru Market",
+      "lake": "Hirekolale Lake",
+      "cityCentre": "7 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "karan.mehra@gmail.com",
+    "createdAt": "2026-04-02T10:20:00.000Z",
+    "updatedAt": "2026-04-02T10:20:00.000Z"
+  },
+
+  {
+    "title": "Coorg Mistwood Villa",
+    "description": "A premium villa in Madikeri surrounded by misty hills and greenery, featuring warm interiors, a private garden, fireplace and spacious outdoor seating.",
+    "propertyType": "Hill Villa",
+    "price": 94000000,
+    "address": "Madikeri",
+    "city": "Coorg",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 3,
+      "bedrooms": 4,
+      "balconies": 2,
+      "floors": 2
+    },
+    "area": 3000,
+    "plotArea": 21780,
+    "yearBuilt": 2022,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Mountain View",
+      "Private Garden",
+      "Fireplace",
+      "Coffee Plantation",
+      "Outdoor Deck",
+      "Solar Panels",
+      "Rainwater Harvesting",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 12.4244,
+    "longitude": 75.7382,
+    "nearbyPlaces": {
+      "school": "Madikeri Town",
+      "hospital": "Madikeri District Hospital",
+      "shopping": "Madikeri Market",
+      "landmark": "Raja's Seat",
+      "cityCentre": "2 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "aarti.nair@gmail.com",
+    "createdAt": "2026-02-08T11:00:00.000Z",
+    "updatedAt": "2026-02-08T11:00:00.000Z"
+  },
+  {
+    "title": "Riverstone Plantation Retreat",
+    "description": "A peaceful plantation retreat near Madikeri with generous land, landscaped gardens, natural surroundings and a comfortable modern residence.",
+    "propertyType": "Plantation Estate",
+    "price": 125000000,
+    "address": "Virajpet",
+    "city": "Coorg",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 4,
+      "parking": 4,
+      "bedrooms": 5,
+      "balconies": 3,
+      "floors": 2
+    },
+    "area": 3400,
+    "plotArea": 43560,
+    "yearBuilt": 2021,
+    "furnishing": "Fully Furnished",
+    "amenities": [
+      "Coffee Plantation",
+      "Private Garden",
+      "River View",
+      "Outdoor Seating",
+      "Fireplace",
+      "Solar Panels",
+      "Rainwater Harvesting",
+      "Power Backup",
+      "Internet"
+    ],
+    "latitude": 12.1967,
+    "longitude": 75.8069,
+    "nearbyPlaces": {
+      "school": "Virajpet Town",
+      "hospital": "Virajpet Government Hospital",
+      "shopping": "Virajpet Market",
+      "landmark": "Coorg Plantation Belt",
+      "cityCentre": "5 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "vishal.patel@gmail.com",
+    "createdAt": "2026-03-08T14:30:00.000Z",
+    "updatedAt": "2026-03-08T14:30:00.000Z"
+  },
+
+  {
+    "title": "Hubballi Central Heights",
+    "description": "A modern 3BHK residence in Hubballi designed for comfortable city living with spacious rooms, practical amenities and excellent everyday connectivity.",
+    "propertyType": "Apartment",
+    "price": 42000000,
+    "address": "Vidya Nagar",
+    "city": "Hubballi",
+    "country": "India",
+    "image": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+    "images": [
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg"
+    ],
+    "facilities": {
+      "bathrooms": 2,
+      "parking": 1,
+      "bedrooms": 3,
+      "balconies": 2,
+      "floors": 1
+    },
+    "area": 1550,
+    "plotArea": 1550,
+    "yearBuilt": 2024,
+    "furnishing": "Semi Furnished",
+    "amenities": [
+      "Gym",
+      "Clubhouse",
+      "Lift",
+      "Security",
+      "CCTV",
+      "Power Backup",
+      "Internet",
+      "Covered Parking"
+    ],
+    "latitude": 15.3647,
+    "longitude": 75.124,
+    "nearbyPlaces": {
+      "school": "KLE Society School",
+      "hospital": "KIMS Hospital",
+      "shopping": "Urban Oasis Mall",
+      "transport": "Hubballi Junction",
+      "cityCentre": "4 km"
+    },
+    "availability": "Available",
+    "status": "Active",
+    "userEmail": "megha.r@gmail.com",
+    "createdAt": "2026-04-10T08:00:00.000Z",
+    "updatedAt": "2026-04-10T08:00:00.000Z"
   }
 ]

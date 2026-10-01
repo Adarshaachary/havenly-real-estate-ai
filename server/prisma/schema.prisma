@@ -1,37 +1,56 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")  
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    name String?
-    email String @unique 
-    image String?
-    bookedVisits Json[]
-    favResidenceiesID String[] @db.ObjectId
-    ownedResidencies Residency[] @relation("Owner")
+  id                  String      @id @default(auto()) @map("_id") @db.ObjectId
+  email               String      @unique
+  name                String?
+  bookedVisits        Json
+  favResidenceiesID   String[]
+  residencies         Residency[]
 }
 
 model Residency {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    title String
-    description String
-    price Int
-    address String
-    city String
-    country String
-    image String
-    facilities Json
-    userEmail String
-    owner User @relation("Owner",fields: [userEmail], references: [email])
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
 
-    @@unique(fields:[address,userEmail])
+  title           String?
+  description     String?
+  propertyType    String?
+  price           Float?
+
+  address         String
+  country         String?
+  city            String?
+
+  image           String?
+  images          String[]
+
+  facilities      Json?
+  area            Float?
+  plotArea        Float?
+  yearBuilt       Int?
+  furnishing      String?
+  amenities       Json?
+
+  latitude        Float?
+  longitude       Float?
+  nearbyPlaces    Json?
+
+  availability    String?
+  status          String?
+
+  userEmail       String
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  owner           User      @relation(fields: [userEmail], references: [email])
+
+  @@unique([address, userEmail])
 }
-

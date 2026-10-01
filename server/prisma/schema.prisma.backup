@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Residency {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  address   Json?
+  /// Field referred in an index, but found no data to define the type.
+  userEmail Json?
+
+  @@unique([address, userEmail])
+}
+
+model User {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  email Json?  @unique
+}

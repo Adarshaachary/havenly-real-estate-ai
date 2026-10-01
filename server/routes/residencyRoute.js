@@ -1,12 +1,20 @@
-import express from 'express';
-import { createResidency, getAllResidencies, getResidency } from '../controllers/resdCntrl.js';
-import jwtCheck from '../config/auth0Config.js';
+import express from "express";
 
-const router = express.Router();   
+import {
+  createResidency,
+  getAllResidencies,
+  getResidency,
+} from "../controllers/resdCntrl.js";
 
-router.post("/create",jwtCheck, createResidency)
-router.get("/allresd", getAllResidencies)
-router.get("/:id",getResidency)
+const router = express.Router();
 
+// Create a property
+router.post("/create", createResidency);
 
-export {router as residencyRoute}
+// Get all properties
+router.get("/allresd", getAllResidencies);
+
+// Get a single property
+router.get("/:id", getResidency);
+
+export { router as residencyRoute };
